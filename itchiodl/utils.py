@@ -51,7 +51,8 @@ def clean_path(path):
 def md5sum(path):
     """Returns the md5sum of a file"""
     md5 = hashlib.md5()
-    with path.open("rb") as f:
+    #with path.open("rb") as f:
+    with open(path, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             md5.update(chunk)
     return md5.hexdigest()
